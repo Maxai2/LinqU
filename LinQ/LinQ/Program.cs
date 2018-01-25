@@ -91,20 +91,13 @@ namespace LinQ
             //}
             //-----------------------------------------------------------------------
             //5 Получить человека с самым длинным именем
-            var query = (from user in root.Elements()
-                        where user.Element("name")?.Value != null
-                        orderby user.Element("name").Element("first")?.Value.Length descending
-                        select user).First();
+            //var query = (from user in root.Elements()
+            //            where user.Element("name")?.Value != null
+            //            orderby user.Element("name").Element("first")?.Value.Length descending
+            //            select user).First();
 
-            foreach (var item in query.Elements())
-            {
-                if (item.Element("first")?.Value != null)
-                {
-                    Console.WriteLine($"Name: {item.Element("first")?.Value}");
-                    Console.WriteLine($"Surname: {item.Element("last")?.Value}");
-                    break;
-                }
-            }
+            //Console.WriteLine($"Surname: {query.Element("name").Element("last")?.Value}");
+            //Console.WriteLine($"Name: {query.Element("name").Element("first")?.Value}");
             //-----------------------------------------------------------------------
             //6 Сгрупировать и вывести людей по национальности
             //var query = from user in root.Elements()
@@ -124,6 +117,22 @@ namespace LinQ
             //}
             //-----------------------------------------------------------------------
             //7* Вывести страну проживания каждого человека
+            var query = from user in root.Elements()
+                        where user?.Value != null
+                        select user;
+
+//            Console.WriteLine(query.Elements());
+
+            foreach (var item in query.Elements())
+            {
+                if (item.Element("name").Element("first").Value != null)
+                {
+                    Console.WriteLine($"Name: {item.Element("name").Element("first")?.Value}");
+                    Console.WriteLine($"Surname: {item.Element("name").Element("last")?.Value}");
+                    Console.WriteLine($"City: {item.Element("location").Element("city")?.Value}");
+                    Console.WriteLine();
+                }
+            }
             //-----------------------------------------------------------------------
 
         }
