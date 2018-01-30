@@ -33,8 +33,8 @@ namespace LinQ
             //{
             //if (item.Element("name").Element("first")?.Value != null)
             //{
-            //    Console.WriteLine($"Name: {item.Element("name").Element("first")?.Value}");
-            //    Console.WriteLine($"Surname: {item.Element("name").Element("last")?.Value}");
+            //    Console.WriteLine($"Name: {item.Element("name")?.Element("first")?.Value}");
+            //    Console.WriteLine($"Surname: {item.Element("name")?.Element("last")?.Value}");
             //    Console.WriteLine($"Gender: {item.Element("gender")?.Value}");
             //    Console.WriteLine();
             //}
